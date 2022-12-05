@@ -63,7 +63,10 @@ main (int argc, char** argv)
 
   if (source_cloud->isOrganized()){
       printf ("\nworks\n");
-      std::cout << "height is " << source_cloud->height << std::endl << std::endl;
+      std::cout << "cloud ls organized with height is: " << source_cloud->height << std::endl << std::endl;
+  }else{
+      std::cout << "cloud is unorganized with height is: " << source_cloud->height << std::endl << std::endl;
+
   }
   /* Reminder: how transformation matrices work :
 
@@ -79,7 +82,7 @@ main (int argc, char** argv)
   Eigen::Matrix4f transform_1 = Eigen::Matrix4f::Identity();
 
   // Define a rotation matrix (see https://en.wikipedia.org/wiki/Rotation_matrix)
-  float theta = M_PI/8; // The angle of rotation in radians
+  float theta = M_PI/2; // The angle of rotation in radians
   transform_1 (0,0) = std::cos (theta);
   transform_1 (0,1) = -sin(theta);
   transform_1 (1,0) = sin (theta);

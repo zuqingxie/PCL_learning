@@ -1,16 +1,40 @@
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
-
 project(MY_GRAND_PROJECT)
 
 find_package(PCL 1.7 REQUIRED)
+add_definitions(${PCL_DEFINITIONS})
+
+# # file(GLOB PCL_LIBRARIES /usr/lib/libpcl_*)
+# set(PCL_INCLUDE_DIRS /usr/include/pcl-1.10)
 
 include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
-add_definitions(${PCL_DEFINITIONS})
 
 add_executable(pcd_write_test pcd_write.cpp)
 add_executable(customer_point_type_test customer_point_type.cpp)
 add_executable(matrix_transform_test matrix_transform.cpp)
+add_executable(voxel_grid_test Filtering/voxel_grid.cpp)
+add_executable(passthrough_test Filtering/passthrough.cpp)
+add_executable(statistical_removal_test Filtering/statistical_removal.cpp)
+add_executable(project_inliers_test Filtering/project_inliers.cpp)
+add_executable(extract_indices_test Filtering/extract_indices.cpp)
+add_executable(remove_outliers_test Filtering/remove_outliers.cpp)
+add_executable(normal_estimation_using_integral_images_test normal_estimation_using_integral_images.cpp)
+add_executable(normal_estimation_test normal_estimation.cpp)
+add_executable(demo demo.cpp)
+add_executable(demo_voxel demo_voxel.cpp)
+
+
 target_link_libraries(pcd_write_test ${PCL_LIBRARIES})
 target_link_libraries(customer_point_type_test ${PCL_LIBRARIES})
 target_link_libraries(matrix_transform_test ${PCL_LIBRARIES})
+target_link_libraries(voxel_grid_test ${PCL_LIBRARIES})
+target_link_libraries(passthrough_test ${PCL_LIBRARIES})
+target_link_libraries(statistical_removal_test ${PCL_LIBRARIES})
+target_link_libraries(project_inliers_test ${PCL_LIBRARIES})
+target_link_libraries(extract_indices_test ${PCL_LIBRARIES})
+target_link_libraries(remove_outliers_test ${PCL_LIBRARIES})
+target_link_libraries(normal_estimation_using_integral_images_test ${PCL_LIBRARIES})
+target_link_libraries(normal_estimation_test ${PCL_LIBRARIES})
+target_link_libraries(demo ${PCL_LIBRARIES})
+target_link_libraries(demo_voxel ${PCL_LIBRARIES})
