@@ -23,7 +23,10 @@ add_executable(normal_estimation_using_integral_images_test normal_estimation_us
 add_executable(normal_estimation_test normal_estimation.cpp)
 add_executable(demo demo.cpp)
 add_executable(demo_voxel demo_voxel.cpp)
-add_executable(demo_remove_ground_test demo_remove_ground.cpp)
+# add_executable(demo_remove_ground_test demo_remove_ground.cpp)
+add_executable(ransac_segmentation_test Filtering/ransac_segmentation.cpp)
+add_executable(gaussian_filter_test Filtering/gaussian_filter.cpp)
+add_executable(statistic_filter_test Filtering/statistic_filter.cpp)
 
 
 target_link_libraries(pcd_write_test ${PCL_LIBRARIES})
@@ -39,4 +42,7 @@ target_link_libraries(normal_estimation_using_integral_images_test ${PCL_LIBRARI
 target_link_libraries(normal_estimation_test ${PCL_LIBRARIES})
 target_link_libraries(demo ${PCL_LIBRARIES})
 target_link_libraries(demo_voxel ${PCL_LIBRARIES})
-target_link_libraries(demo_remove_ground_test ${PCL_LIBRARIES})
+# target_link_libraries(demo_remove_ground_test ${PCL_LIBRARIES})
+target_link_libraries(ransac_segmentation_test ${PCL_LIBRARIES})
+target_link_libraries(gaussian_filter_test ${PCL_LIBRARIES})
+target_link_libraries(statistic_filter_test ${PCL_LIBRARIES})
