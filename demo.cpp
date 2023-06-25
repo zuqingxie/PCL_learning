@@ -236,14 +236,14 @@ main (int argc, char** argv)
   
 
 /*
-  reove the outlier
+  remove the outlier
 */
   pcl::RadiusOutlierRemoval<pcl::PointXYZRGB> outrem;
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr outliered_cloud (new pcl::PointCloud<pcl::PointXYZRGB> ());
   // build the filter
   start = std::chrono::high_resolution_clock::now();
   outrem.setInputCloud(source_cloud);
-  outrem.setRadiusSearch(0.05);
+  outrem.setRadiusSearch(0.02);
   outrem.setMinNeighborsInRadius (5);
   // outrem.setKeepOrganized(true);
   // apply filter
@@ -251,7 +251,7 @@ main (int argc, char** argv)
   used = std::chrono::high_resolution_clock::now() - start;
   std::cout << "k-min outlier filter used time: " << used.count() << " s,   ";
   std::cout << "with point num =  " << outliered_cloud->size() << " \n";
-  // writer.write<pcl::PointXYZRGB> ("/home/zuqing/Documents/Git/PCL_learning/office/demo_outliered.pcd", *outliered_cloud, false);
+  writer.write<pcl::PointXYZRGB> ("/home/zuqing/Documents/Git/PCL_learning/office/demo_outliered_0.02_5.pcd", *outliered_cloud, false);
 
 
 /*
